@@ -1,0 +1,13 @@
+CREATE TABLE designations (
+    id BIGINT NOT NULL AUTO_INCREMENT,
+    code VARCHAR(20) NOT NULL,
+    name VARCHAR(100) NOT NULL,
+    active BOOLEAN NOT NULL DEFAULT TRUE,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+
+    CONSTRAINT pk_designations PRIMARY KEY (id),
+    CONSTRAINT uk_designations_code UNIQUE (code),
+    CONSTRAINT uk_designations_name UNIQUE (name)
+);
